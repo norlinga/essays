@@ -219,10 +219,10 @@ This isn't just treading water, this is moving backward!
 All this time wasted on setting up tests and there's no working code yet!!!
 
 **True**.
-But consider this - good tooling matters in real engineering, and I've put all the tooling in place that I need in order to get cranking.
+But consider this - good tooling matters in real engineering, and I've **already** put all the tooling in place that I need.
 The boilerplate is completely out of the way.
 I've got the engine running.
-From here, every test I write is pure momentum.
+From here onward, every test I write is pure momentum.
 Trust.
 
 ## The Naive Example
@@ -315,7 +315,7 @@ The goal in red-green is to create a test case to drive feature development, the
 Before starting another feature in red-green development I would get the test suite to green, then start over with more red.
 
 If I pedanticly red-green every feature in this essay... we're going to be here for a while.
-Your job as the reader, from here on, is to presume that I'm doing red-green, even when I show the code all at once.
+Your job as the reader, from here on, is to presume that I'm doing red-green even when I show the code all at once.
 
 ## Adding a Feature
 
@@ -417,8 +417,8 @@ Welcome these messages!
 
 You might think that the example above is super trivial, and you're right!
 And yet... how often have you found yourself wanting to refactor something or move code around in a simple script... and you can't.
-Or you do it and things blow up, and you ask yourself "why?"
-Then you start to liter your code with diagnostic outputs to try and understand where things are breaking down.
+Or you **do it and things blow up**, and you ask yourself "why?"
+Then you start to litter your code with diagnostic outputs to try and understand where things are breaking down.
 This has been my life more often than I care to think about.
 
 Here's the question I didn't have a great answer for: **why _not_ lead with tests**?
@@ -499,7 +499,7 @@ end
 Doing this red-green, we get a working test suite.
 
 **Plot Twist - The Code Above Is Too Clever**.
-As I worked through this code, asked myself _do I even need safe navigation here?_
+As I worked through this code, I asked myself _do I even need safe navigation here?_
 
 With the backstop of a working test suite, I have the safety and confidence to ask a simple question like that and get an instant answer.
 I changed this line:
@@ -517,12 +517,12 @@ result[user[:opted_out]] == true
 And... the tests still pass.
 Awesome.
 
-It turns out Ruby handles `nil == true` just fine - returning false - which means I don't have to guard against `nil` explicity in the `Hash`, meaning safe navigation wasn't necessary.
+It turns out Ruby hashes handle missing keys and `nil == true` just fine - returning false - which means I don't have to guard against `nil` explicity in the `Hash`, meaning safe navigation wasn't necessary.
 The test suite confirmed it, and I got to delete an operator I didn't need.
 
 This is what testing unlocks: **not just correctness, but curiosity**.
 Without the backstop of a working test suite... would I have even asked that question?
-Maybe not, since the consequence of pursuing that sort of answer could introduce regressions and require _A Lot Of Work_.
+Maybe, but also maybe not since the consequence of pursuing that sort of answer could introduce regressions and require _A Lot Of Work_.
 
 ## The Freedom to Refactor
 
@@ -535,8 +535,6 @@ A couple things stand out:
 At the moment, email validation is only checking whether email is `nil?`.
 But I know how the world works: that logic will grow, and so will the logic for opting out.
 Extracting those statements into their own methods feels like a good way to keep things sane and, more importantly, easy to read.
-
-At the risk of beating this point into the ground, I'm not even sure it's possible to be all about that Clean Code life without tests.
 
 In a REPL or test-free coding context, a refactor is not a fun exercise, enough so that I just might not do it.
 In the test-driven context I have confidence in my current code because I have tests that exercise it.
@@ -621,13 +619,12 @@ This is a kindness that I can gift to anyone who enters this codebase later.
 
 **Tests are more valuable than you realize**.
 
-A good test suite offers value to you, in the present moment, while you're developing.
-Tests bring confidence while developing your ideas and tests support you while you refactor.
-The same tests that support you in the present will support you in the future.
+A good test suite offers value to you right now, in the present moment, while you're developing.
+Tests also bring confidence and support you while you refactor.
+And critically, the same tests that support you in the present also support you in the future.
 
-Guaranteed - you're going to forget about some implementation choices you made 8 months ago.
-But your tests won't.
-And that's what makes them priceless.
+Here's a guarantee - you're going to forget about some implementation choices you made 8 months ago.
+But your tests won't, and that makes them priceless.
 
 ## Feature Wrap Up
 
